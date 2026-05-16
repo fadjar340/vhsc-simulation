@@ -1,4 +1,4 @@
-system,peak_TOPS,bandwidth_TB_s,ridge_point_ops_per_byte,long_range_energy_pJ_per_byte,long_range_byte_fraction,derivation_note
-Planar baseline,100.0,1.0,100.0,20.0,1.0,Placeholder baseline: 100 TOPS and 1 TB/s represent a conventional separated compute-memory system for comparison only.
-VHS-C single layer,250.0,4.0,62.5,6.0,0.35,"Placeholder VHS-C single-layer estimate. Must later be derived from 50 mm x 50 mm tile area, usable compute fraction, standard-cell or MAC density, clock frequency, utilization, and thermal limit."
-VHS-C multi-layer stack,1000.0,20.0,50.0,2.0,0.1,Placeholder VHS-C stacked estimate. Represents increased local bandwidth and reduced long-range movement from repeated compute-memory layers. Not a demonstrated device result.
+system,scenario_class,peak_TOPS,bandwidth_TB_s,ridge_point_ops_per_byte,long_range_energy_pJ_per_byte,long_range_byte_fraction,derivation_note
+Planar baseline,conventional comparison baseline,100.0,1.0,100.0,20.0,1.0,Placeholder baseline: 100 TOPS and 1 TB/s represent a conventional separated compute-memory system for comparison only.
+VHS-C single layer,near-term locality planning model,250.0,4.0,62.5,6.0,0.35,"Placeholder VHS-C single-layer estimate. Must later be derived from tile area, usable compute fraction, cell/MAC density, clock frequency, utilization, and thermal limit."
+VHS-C multi-layer stack,near-term locality planning model,1000.0,20.0,50.0,2.0,0.1,Placeholder VHS-C stacked estimate. Represents increased local bandwidth and reduced long-range movement from repeated compute-memory layers. Not a demonstrated device result. This is separate from the aspirational ExaOPS thermal stress case.
