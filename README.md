@@ -1,8 +1,12 @@
 # VHS-C Simulation
 
-1. Clone the repo
-2. Run with: `python3 vhsc_section14_sim.py`
-3. It will create new folder: `vhsc_sim_output`
+```
+git clone https://github.com/fadjar340/vhsc-simulation.git
+cd vhsc-simulation
+python3 -m pip install -r requirements.txt
+python3 vhsc_section14_sim.py
+```
+It will create new folder: `vhsc_sim_output`
 
 ## Content of the output folder
 ```
