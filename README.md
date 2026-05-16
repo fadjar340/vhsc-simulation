@@ -26,4 +26,5 @@ vhsc_sim_output
   - vertical_bus_pitch_sweep.csv
   - vertical_bus_summary.csv
 ```
-This simulation just for the roadmap research scaffolding, not the end result
+The simulation scaffold used to generate the plots and CSV outputs in this appendix is publicly available in the VHS-C simulation repository:
+{https://github.com/fadjar340/vhsc-simulation}.
