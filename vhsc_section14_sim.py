@@ -358,10 +358,24 @@ class VerticalBusConfig:
     eps_r: float = 3.5
     voltage_v: float = 0.7
 
-    # More conservative than the previous factor of 2.0.
-    # This lumps nearby return conductors, adjacent vias, local redistribution
-    # metal, and heterogeneous dielectric environment into a single screening
-    # multiplier. It is not a substitute for extraction.
+    # Effective environment multiplier for the simplified via capacitance model.
+    #
+    # The base capacitance equation is a highly simplified nearest-return /
+    # coaxial-style estimate. Real stacked-chip vertical links can see additional
+    # effective capacitance from nearby return conductors, adjacent vias,
+    # redistribution metal, dielectric interfaces, landing pads, and package
+    # discontinuities.
+    #
+    # This scaffold therefore treats the multiplier as a sensitivity parameter.
+    # The suggested exploratory range is 5x-20x:
+    #
+    #   1x   = optimistic isolated-link estimate
+    #   5x   = light parasitic environment
+    #   10x  = mid-range screening default
+    #   20x  = pessimistic dense-stack screening case
+    #
+    # This is not a field-solver result and must be replaced by extracted or
+    # measured via-chain capacitance before any design claim is made.
     effective_capacitance_multiplier: float = 10.0
 
     allowed_rc_fraction_of_ui: float = 0.20
@@ -464,7 +478,11 @@ def estimate_via_params(
 
     return {
         "material": material.name,
-        "model_validity": "order-of-magnitude screening only; field-solver extraction required",
+        "model_validity": (
+            "order-of-magnitude screening only; effective capacitance multiplier is "
+            "a 5x-20x sensitivity parameter, not a measured value; field-solver "
+            "extraction and via-chain measurement required"
+        ),
         "bandwidth_interpretation": (
             "Capped rate is an architecture assumption. If cap-limited, it is not "
             "a material-selection result; use RC_tau_ps for material sensitivity."
@@ -536,21 +554,23 @@ def run_vertical_bus_model() -> List[Dict[str, float | str]]:
     plt.title("Vertical Bus Capped Architecture-Level Bandwidth Assumption")
     plt.grid(True, axis="y", linestyle="--", linewidth=0.5)
     plt.legend()
+
+    plt.text(
+        0.5,
+        0.92,
+        "All materials are cap-limited at 224 Gbps/lane;\n"
+        "use the RC-delay plot for material sensitivity.",
+        transform=plt.gca().transAxes,
+        ha="center",
+        va="top",
+        fontsize=9,
+        bbox=dict(boxstyle="round", facecolor="white", alpha=0.8),
+    )
+
     plt.tight_layout()
     plt.savefig(OUTDIR / "vertical_bus_bandwidth.png", dpi=200)
     plt.close()
 
-    # Uncapped RC-rate plot to show why the capped plot is degenerate
-    plt.figure(figsize=(9, 6))
-    uncapped = [float(r["RC_limited_data_rate_Gbps"]) for r in rows]
-    plt.bar(materials, uncapped)
-    plt.yscale("log")
-    plt.ylabel("RC-limited lane-rate screening value [Gbps, log scale]")
-    plt.title("Vertical Bus Uncapped RC-Limited Screening Rate\n(not a real SerDes rate)")
-    plt.grid(True, axis="y", which="both", linestyle="--", linewidth=0.5)
-    plt.tight_layout()
-    plt.savefig(OUTDIR / "vertical_bus_uncapped_rc_rate.png", dpi=200)
-    plt.close()
 
     # Pitch sweep
     pitch_rows: List[Dict[str, float | str]] = []
@@ -633,6 +653,31 @@ def run_vertical_bus_model() -> List[Dict[str, float | str]]:
     plt.savefig(OUTDIR / "vertical_bus_pitch_rc_tau.png", dpi=200)
     plt.close()
 
+    # Uncapped RC-rate plot to show why the capped plot is degenerate
+    plt.figure(figsize=(9, 6))
+    uncapped = [float(r["RC_limited_data_rate_Gbps"]) for r in rows]
+    plt.bar(materials, uncapped)
+    plt.yscale("log")
+    plt.ylabel("RC-limited lane-rate screening value [Gbps, log scale]")
+    plt.title("Vertical Bus Uncapped RC-Limited Screening Rate\n(not a real SerDes rate)")
+    plt.grid(True, axis="y", which="both", linestyle="--", linewidth=0.5)
+
+    plt.text(
+        0.5,
+        0.92,
+        "Diagnostic RC-only value, not a real signaling rate.\n"
+        "Practical plotted rate remains capped at 224 Gbps/lane.",
+        transform=plt.gca().transAxes,
+        ha="center",
+        va="top",
+        fontsize=9,
+        bbox=dict(boxstyle="round", facecolor="white", alpha=0.8),
+    )
+
+    plt.tight_layout()
+    plt.savefig(OUTDIR / "vertical_bus_uncapped_rc_rate.png", dpi=200)
+    plt.close()
+
     return rows
 
 
@@ -660,7 +705,21 @@ class ThermalConfig:
 
 
 def estimate_rtheta_total(num_layers: int, cfg: ThermalConfig) -> float:
-    support_layers = max(0, math.ceil(num_layers / cfg.support_layer_interval) - 1)
+    """
+    Estimate total stack thermal resistance.
+
+    A support/shield layer is inserted once per complete support interval.
+    With support_layer_interval = 3:
+
+        n = 1 or 2  -> 0 support layers
+        n = 3       -> 1 support layer
+        n = 6       -> 2 support layers
+        n = 10      -> 3 support layers
+
+    This represents the design rule "one support/shield layer every three active
+    compute-memory layers."
+    """
+    support_layers = num_layers // cfg.support_layer_interval
 
     return (
         cfg.rtheta_package_K_W
