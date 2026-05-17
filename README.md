@@ -31,3 +31,4 @@ vhsc_sim_output
   - vertical_bus_summary.csv
 ```
 
+The simulation repository should be interpreted as a living scaffold. Version~v1.1 separates the near-term roofline throughput assumption from the aspirational ExaOPS thermal-stress assumption, clarifies the capped vertical-bus bandwidth interpretation, increases the effective vertical-bus capacitance screening multiplier, uses independent random-number streams for each NoC failure-rate point, and increases the NoC Monte Carlo sample count. These changes improve traceability and interpretation; they do not convert the scaffold into device proof.
