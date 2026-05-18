@@ -1,0 +1,24 @@
+{
+  "description": "Last-known-good recovery profile with minimal management-only resources.",
+  "isa_profile": "management-core",
+  "machine_contract": "recovery-minimal",
+  "os_family": "recovery",
+  "power_limit_w": 8,
+  "priority": 0,
+  "profile_hash": "4236b00a147df7d4746a427e0b4b2bd01795fb64c4e89d46201c238dbe31ca8b",
+  "profile_id": "recovery-safe-minimal",
+  "profile_schema": "vhsc.profile.v0.2-roadmap",
+  "profile_type": "recovery",
+  "required_accelerators": [],
+  "required_compute": [],
+  "required_io": [
+    "MGMT0"
+  ],
+  "required_memory_mb": 64,
+  "required_persistent": [
+    "P1"
+  ],
+  "security_policy": "recovery-only",
+  "signature": "62166b1ec737eca79e0202914351c929875bea382a03bf05c2030fc9b7b44eca",
+  "vbus_quota_gbps": 10
+}
