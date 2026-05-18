@@ -1,0 +1,124 @@
+scenario,step,status,detail,metadata_id,profile_id
+normal,power_on,ok,Power-on/reset enters minimal trusted management island.,,
+normal,management_island,ok,"BootROM, scratchpad SRAM, metadata reader, and verification engines available.",,
+normal,metadata_read,ok,Read 2 protected metadata copies from protected_metadata_good.json.,,
+normal,ecc_check,ok,ECC corrected 1 simulated bit error(s).,meta-copy-A-good,
+normal,commit_state,ok,Metadata copy is committed.,meta-copy-A-good,
+normal,crc_check,ok,Fast CRC-like check passed.,meta-copy-A-good,
+normal,hash_check,ok,SHA-256 payload hash passed.,meta-copy-A-good,
+normal,signature_check,ok,Metadata signature validated authority.,meta-copy-A-good,
+normal,rollback_check,ok,Generation counter accepted: 42.,meta-copy-A-good,
+normal,ecc_check,ok,No simulated ECC errors.,meta-copy-B-last-known-good,
+normal,commit_state,ok,Metadata copy is committed.,meta-copy-B-last-known-good,
+normal,crc_check,ok,Fast CRC-like check passed.,meta-copy-B-last-known-good,
+normal,hash_check,ok,SHA-256 payload hash passed.,meta-copy-B-last-known-good,
+normal,signature_check,ok,Metadata signature validated authority.,meta-copy-B-last-known-good,
+normal,rollback_check,ok,Generation counter accepted: 41.,meta-copy-B-last-known-good,
+normal,metadata_selection,ok,Selected newest committed metadata copy generation=42.,meta-copy-A-good,
+normal,profile_signature,ok,Profile linux-riscv-devicetree signature validated.,meta-copy-A-good,linux-riscv-devicetree
+normal,resource_validation,ok,Resources satisfy profile; estimated execution/accelerator power=8.0 W.,meta-copy-A-good,linux-riscv-devicetree
+normal,hpeu_configuration,ok,"HPEU model checks passed: memory_window, io_permission, dma_window, interrupt_route, vbus_quota, debug_lockout, power_thermal_quota, isa_region_ownership",meta-copy-A-good,linux-riscv-devicetree
+normal,machine_contract,ok,Generated device-tree machine contract.,meta-copy-A-good,linux-riscv-devicetree
+normal,boot_selected_profile,ok,Boot profile accepted: linux-riscv-devicetree.,meta-copy-A-good,linux-riscv-devicetree
+metadata_corrupt,power_on,ok,Power-on/reset enters minimal trusted management island.,,
+metadata_corrupt,management_island,ok,"BootROM, scratchpad SRAM, metadata reader, and verification engines available.",,
+metadata_corrupt,metadata_read,ok,Read 2 protected metadata copies from protected_metadata_corrupt.json.,,
+metadata_corrupt,ecc_check,ok,ECC corrected 2 simulated bit error(s).,meta-copy-C-corrupt-hash,
+metadata_corrupt,commit_state,ok,Metadata copy is committed.,meta-copy-C-corrupt-hash,
+metadata_corrupt,crc_check,ok,Fast CRC-like check passed.,meta-copy-C-corrupt-hash,
+metadata_corrupt,hash_check,fail,"SHA-256 payload hash mismatch: expected=0000000000000000000000000000000000000000000000000000000000000000, actual=3e3e67bb9f571450cb1e7f31c35da21d55a479f3d34ae569cf68ab7b7abeb80b.",meta-copy-C-corrupt-hash,
+metadata_corrupt,ecc_check,ok,No simulated ECC errors.,meta-copy-B-last-known-good,
+metadata_corrupt,commit_state,ok,Metadata copy is committed.,meta-copy-B-last-known-good,
+metadata_corrupt,crc_check,ok,Fast CRC-like check passed.,meta-copy-B-last-known-good,
+metadata_corrupt,hash_check,ok,SHA-256 payload hash passed.,meta-copy-B-last-known-good,
+metadata_corrupt,signature_check,ok,Metadata signature validated authority.,meta-copy-B-last-known-good,
+metadata_corrupt,rollback_check,ok,Generation counter accepted: 41.,meta-copy-B-last-known-good,
+metadata_corrupt,metadata_selection,ok,Selected newest committed metadata copy generation=41.,meta-copy-B-last-known-good,
+metadata_corrupt,profile_signature,ok,Profile recovery-safe-minimal signature validated.,meta-copy-B-last-known-good,recovery-safe-minimal
+metadata_corrupt,resource_validation,ok,Resources satisfy profile; estimated execution/accelerator power=0.0 W.,meta-copy-B-last-known-good,recovery-safe-minimal
+metadata_corrupt,hpeu_configuration,ok,Recovery profile uses minimal management-only HPEU policy.,meta-copy-B-last-known-good,recovery-safe-minimal
+metadata_corrupt,machine_contract,ok,Generated recovery-minimal machine contract.,meta-copy-B-last-known-good,recovery-safe-minimal
+metadata_corrupt,boot_selected_profile,ok,Boot profile accepted: recovery-safe-minimal.,meta-copy-B-last-known-good,recovery-safe-minimal
+metadata_stale,power_on,ok,Power-on/reset enters minimal trusted management island.,,
+metadata_stale,management_island,ok,"BootROM, scratchpad SRAM, metadata reader, and verification engines available.",,
+metadata_stale,metadata_read,ok,Read 2 protected metadata copies from protected_metadata_stale.json.,,
+metadata_stale,ecc_check,ok,No simulated ECC errors.,meta-copy-E-stale,
+metadata_stale,commit_state,ok,Metadata copy is committed.,meta-copy-E-stale,
+metadata_stale,crc_check,ok,Fast CRC-like check passed.,meta-copy-E-stale,
+metadata_stale,hash_check,ok,SHA-256 payload hash passed.,meta-copy-E-stale,
+metadata_stale,signature_check,ok,Metadata signature validated authority.,meta-copy-E-stale,
+metadata_stale,rollback_check,ok,Generation counter accepted: 20.,meta-copy-E-stale,
+metadata_stale,ecc_check,ok,No simulated ECC errors.,meta-copy-B-last-known-good,
+metadata_stale,commit_state,ok,Metadata copy is committed.,meta-copy-B-last-known-good,
+metadata_stale,crc_check,ok,Fast CRC-like check passed.,meta-copy-B-last-known-good,
+metadata_stale,hash_check,ok,SHA-256 payload hash passed.,meta-copy-B-last-known-good,
+metadata_stale,signature_check,ok,Metadata signature validated authority.,meta-copy-B-last-known-good,
+metadata_stale,rollback_check,ok,Generation counter accepted: 41.,meta-copy-B-last-known-good,
+metadata_stale,metadata_selection,ok,Selected newest committed metadata copy generation=41.,meta-copy-B-last-known-good,
+metadata_stale,profile_signature,ok,Profile recovery-safe-minimal signature validated.,meta-copy-B-last-known-good,recovery-safe-minimal
+metadata_stale,resource_validation,ok,Resources satisfy profile; estimated execution/accelerator power=0.0 W.,meta-copy-B-last-known-good,recovery-safe-minimal
+metadata_stale,hpeu_configuration,ok,Recovery profile uses minimal management-only HPEU policy.,meta-copy-B-last-known-good,recovery-safe-minimal
+metadata_stale,machine_contract,ok,Generated recovery-minimal machine contract.,meta-copy-B-last-known-good,recovery-safe-minimal
+metadata_stale,boot_selected_profile,ok,Boot profile accepted: recovery-safe-minimal.,meta-copy-B-last-known-good,recovery-safe-minimal
+metadata_unsigned,power_on,ok,Power-on/reset enters minimal trusted management island.,,
+metadata_unsigned,management_island,ok,"BootROM, scratchpad SRAM, metadata reader, and verification engines available.",,
+metadata_unsigned,metadata_read,ok,Read 2 protected metadata copies from protected_metadata_unsigned.json.,,
+metadata_unsigned,ecc_check,ok,No simulated ECC errors.,meta-copy-D-unsigned,
+metadata_unsigned,commit_state,ok,Metadata copy is committed.,meta-copy-D-unsigned,
+metadata_unsigned,crc_check,ok,Fast CRC-like check passed.,meta-copy-D-unsigned,
+metadata_unsigned,hash_check,ok,SHA-256 payload hash passed.,meta-copy-D-unsigned,
+metadata_unsigned,signature_check,fail,Missing metadata signature.,meta-copy-D-unsigned,
+metadata_unsigned,ecc_check,ok,No simulated ECC errors.,meta-copy-B-last-known-good,
+metadata_unsigned,commit_state,ok,Metadata copy is committed.,meta-copy-B-last-known-good,
+metadata_unsigned,crc_check,ok,Fast CRC-like check passed.,meta-copy-B-last-known-good,
+metadata_unsigned,hash_check,ok,SHA-256 payload hash passed.,meta-copy-B-last-known-good,
+metadata_unsigned,signature_check,ok,Metadata signature validated authority.,meta-copy-B-last-known-good,
+metadata_unsigned,rollback_check,ok,Generation counter accepted: 41.,meta-copy-B-last-known-good,
+metadata_unsigned,metadata_selection,ok,Selected newest committed metadata copy generation=41.,meta-copy-B-last-known-good,
+metadata_unsigned,profile_signature,ok,Profile recovery-safe-minimal signature validated.,meta-copy-B-last-known-good,recovery-safe-minimal
+metadata_unsigned,resource_validation,ok,Resources satisfy profile; estimated execution/accelerator power=0.0 W.,meta-copy-B-last-known-good,recovery-safe-minimal
+metadata_unsigned,hpeu_configuration,ok,Recovery profile uses minimal management-only HPEU policy.,meta-copy-B-last-known-good,recovery-safe-minimal
+metadata_unsigned,machine_contract,ok,Generated recovery-minimal machine contract.,meta-copy-B-last-known-good,recovery-safe-minimal
+metadata_unsigned,boot_selected_profile,ok,Boot profile accepted: recovery-safe-minimal.,meta-copy-B-last-known-good,recovery-safe-minimal
+degraded_resources,power_on,ok,Power-on/reset enters minimal trusted management island.,,
+degraded_resources,management_island,ok,"BootROM, scratchpad SRAM, metadata reader, and verification engines available.",,
+degraded_resources,metadata_read,ok,Read 2 protected metadata copies from protected_metadata_good.json.,,
+degraded_resources,fault_injection,warn,Scenario degraded_resources: C0 degraded after metadata generation.,,
+degraded_resources,ecc_check,ok,ECC corrected 1 simulated bit error(s).,meta-copy-A-good,
+degraded_resources,commit_state,ok,Metadata copy is committed.,meta-copy-A-good,
+degraded_resources,crc_check,ok,Fast CRC-like check passed.,meta-copy-A-good,
+degraded_resources,hash_check,ok,SHA-256 payload hash passed.,meta-copy-A-good,
+degraded_resources,signature_check,ok,Metadata signature validated authority.,meta-copy-A-good,
+degraded_resources,rollback_check,ok,Generation counter accepted: 42.,meta-copy-A-good,
+degraded_resources,ecc_check,ok,No simulated ECC errors.,meta-copy-B-last-known-good,
+degraded_resources,commit_state,ok,Metadata copy is committed.,meta-copy-B-last-known-good,
+degraded_resources,crc_check,ok,Fast CRC-like check passed.,meta-copy-B-last-known-good,
+degraded_resources,hash_check,ok,SHA-256 payload hash passed.,meta-copy-B-last-known-good,
+degraded_resources,signature_check,ok,Metadata signature validated authority.,meta-copy-B-last-known-good,
+degraded_resources,rollback_check,ok,Generation counter accepted: 41.,meta-copy-B-last-known-good,
+degraded_resources,metadata_selection,ok,Selected newest committed metadata copy generation=42.,meta-copy-A-good,
+degraded_resources,profile_signature,ok,Profile linux-riscv-devicetree signature validated.,meta-copy-A-good,linux-riscv-devicetree
+degraded_resources,resource_validation,fail,Required compute region C0 is not healthy: thermal_throttled_degraded.,meta-copy-A-good,linux-riscv-devicetree
+degraded_resources,rollback_start,warn,Rollback triggered because: Required compute region C0 is not healthy: thermal_throttled_degraded..,meta-copy-A-good,recovery-safe-minimal
+degraded_resources,rollback_complete,ok,Activated last-known-good profile: recovery-safe-minimal.,meta-copy-A-good,recovery-safe-minimal
+unsafe_profile,power_on,ok,Power-on/reset enters minimal trusted management island.,,
+unsafe_profile,management_island,ok,"BootROM, scratchpad SRAM, metadata reader, and verification engines available.",,
+unsafe_profile,metadata_read,ok,Read 2 protected metadata copies from protected_metadata_good.json.,,
+unsafe_profile,fault_injection,warn,Scenario unsafe_profile: active profile changed to x86-64 placeholder.,,
+unsafe_profile,ecc_check,ok,ECC corrected 1 simulated bit error(s).,meta-copy-A-good,
+unsafe_profile,commit_state,ok,Metadata copy is committed.,meta-copy-A-good,
+unsafe_profile,crc_check,ok,Fast CRC-like check passed.,meta-copy-A-good,
+unsafe_profile,hash_check,ok,SHA-256 payload hash passed.,meta-copy-A-good,
+unsafe_profile,signature_check,ok,Metadata signature validated authority.,meta-copy-A-good,
+unsafe_profile,rollback_check,ok,Generation counter accepted: 42.,meta-copy-A-good,
+unsafe_profile,ecc_check,ok,No simulated ECC errors.,meta-copy-B-last-known-good,
+unsafe_profile,commit_state,ok,Metadata copy is committed.,meta-copy-B-last-known-good,
+unsafe_profile,crc_check,ok,Fast CRC-like check passed.,meta-copy-B-last-known-good,
+unsafe_profile,hash_check,ok,SHA-256 payload hash passed.,meta-copy-B-last-known-good,
+unsafe_profile,signature_check,ok,Metadata signature validated authority.,meta-copy-B-last-known-good,
+unsafe_profile,rollback_check,ok,Generation counter accepted: 41.,meta-copy-B-last-known-good,
+unsafe_profile,metadata_selection,ok,Selected newest committed metadata copy generation=42.,meta-copy-A-good,
+unsafe_profile,profile_signature,ok,Profile x86-64-later-stage-placeholder signature validated.,meta-copy-A-good,x86-64-later-stage-placeholder
+unsafe_profile,resource_validation,fail,Required compute region C4 is not healthy: unavailable_unlicensed.,meta-copy-A-good,x86-64-later-stage-placeholder
+unsafe_profile,rollback_start,warn,Rollback triggered because: Required compute region C4 is not healthy: unavailable_unlicensed..,meta-copy-A-good,recovery-safe-minimal
+unsafe_profile,rollback_complete,ok,Activated last-known-good profile: recovery-safe-minimal.,meta-copy-A-good,recovery-safe-minimal

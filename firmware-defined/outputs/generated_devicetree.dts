@@ -1,0 +1,37 @@
+/dts-v1/;
+    / {
+        compatible = "vhsc,bootrom-scaffold", "vhsc,management-core";
+        model = "VHS-C BootROM Control-Plane Scaffold";
+        #address-cells = <2>;
+        #size-cells = <2>;
+
+        chosen {
+            bootargs = "console=ttyS0 vhsc_profile=recovery-safe-minimal";
+        };
+
+        cpus {
+            #address-cells = <1>;
+            #size-cells = <0>;
+            cpu@0 {
+                device_type = "cpu";
+                compatible = "vhsc,management-core";
+                reg = <0>;
+            };
+        };
+
+        memory@80000000 {
+            device_type = "memory";
+/* M0 */ reg = <0x0 0x80000000 0x0 0x40000000>;
+        };
+
+        soc {
+            compatible = "simple-bus";
+            vhsc_telemetry: telemetry@10000000 {
+                compatible = "vhsc,telemetry-scaffold";
+                metadata-id = "meta-copy-A-good";
+            };
+            vhsc_vbus: vbus@10001000 {
+                compatible = "vhsc,vbus-scaffold";
+            };
+        };
+    };
