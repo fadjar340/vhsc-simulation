@@ -1,0 +1,342 @@
+{
+  "metadata_copies": [
+    {
+      "header": {
+        "crc32_fast_check": "d7042b8f",
+        "created_utc": "2026-05-18T18:50:42Z",
+        "ecc_correctable": true,
+        "ecc_errors": 1,
+        "generation_counter": 42,
+        "metadata_id": "meta-copy-A-good",
+        "payload_length": 1751,
+        "previous_valid_generation": 41,
+        "schema_version": "vhsc.bootmeta.v0.2-roadmap",
+        "sha256_payload_hash": "3e3e67bb9f571450cb1e7f31c35da21d55a479f3d34ae569cf68ab7b7abeb80b",
+        "signature_reference": "dev-hmac-sha256",
+        "state": "committed"
+      },
+      "payload": {
+        "active_profile_id": "linux-riscv-devicetree",
+        "guard_rails": {
+          "allow_unlicensed_isa": false,
+          "max_total_power_w": 60,
+          "require_hpeu": true,
+          "require_signed_profiles": true
+        },
+        "last_known_good_profile_id": "recovery-safe-minimal",
+        "profile_ids": [
+          "linux-riscv-devicetree",
+          "bsd-riscv-devicetree",
+          "rtos-vrisc-flatmap",
+          "windows-arm64-uefi-acpi",
+          "x86-64-later-stage-placeholder",
+          "recovery-safe-minimal"
+        ],
+        "resource_map": {
+          "accelerator_slices": [
+            {
+              "id": "AI0",
+              "power_w": 12,
+              "status": "healthy",
+              "type": "near-memory-vector"
+            },
+            {
+              "id": "SEC0",
+              "power_w": 4,
+              "status": "healthy",
+              "type": "security-crypto"
+            }
+          ],
+          "compute_regions": [
+            {
+              "id": "C0",
+              "isa": "riscv64",
+              "power_w": 8,
+              "status": "healthy",
+              "tops": 20
+            },
+            {
+              "id": "C1",
+              "isa": "riscv64",
+              "power_w": 8,
+              "status": "healthy",
+              "tops": 20
+            },
+            {
+              "id": "C2",
+              "isa": "v-risc",
+              "power_w": 7,
+              "status": "healthy",
+              "tops": 25
+            },
+            {
+              "id": "C3",
+              "isa": "arm64-compatible",
+              "power_w": 7,
+              "status": "healthy",
+              "tops": 18
+            },
+            {
+              "id": "C4",
+              "isa": "x86-64-compatible",
+              "power_w": 0,
+              "status": "unavailable_unlicensed",
+              "tops": 0
+            }
+          ],
+          "io_blocks": [
+            {
+              "id": "NET0",
+              "status": "healthy",
+              "type": "network"
+            },
+            {
+              "id": "STOR0",
+              "status": "healthy",
+              "type": "storage"
+            },
+            {
+              "id": "MGMT0",
+              "status": "healthy",
+              "type": "management"
+            }
+          ],
+          "memory_regions": [
+            {
+              "id": "M0",
+              "size_mb": 1024,
+              "status": "healthy"
+            },
+            {
+              "id": "M1",
+              "size_mb": 1024,
+              "status": "healthy"
+            },
+            {
+              "id": "M2",
+              "size_mb": 512,
+              "status": "healthy"
+            },
+            {
+              "id": "M3",
+              "size_mb": 512,
+              "status": "degraded"
+            }
+          ],
+          "persistent_regions": [
+            {
+              "id": "P0",
+              "size_mb": 256,
+              "status": "healthy"
+            },
+            {
+              "id": "P1",
+              "size_mb": 128,
+              "status": "healthy"
+            }
+          ],
+          "resource_map_id": "vhsc_demo_resource_map_v1",
+          "thermal_zones": [
+            {
+              "id": "TZ0",
+              "max_w": 40,
+              "status": "healthy"
+            },
+            {
+              "id": "TZ1",
+              "max_w": 40,
+              "status": "healthy"
+            }
+          ],
+          "vbus_links": [
+            {
+              "gbps": 224,
+              "id": "VBUS0",
+              "status": "healthy"
+            },
+            {
+              "gbps": 224,
+              "id": "VBUS1",
+              "status": "healthy"
+            },
+            {
+              "gbps": 112,
+              "id": "VBUS2",
+              "status": "degraded"
+            }
+          ]
+        }
+      },
+      "signature": "f6dee2350d3688cf00a7aa195bcebd329b1d4be517f677d91ae91378c9ae1f61"
+    },
+    {
+      "header": {
+        "crc32_fast_check": "53b30f9e",
+        "created_utc": "2026-05-18T18:50:42Z",
+        "ecc_correctable": true,
+        "ecc_errors": 0,
+        "generation_counter": 41,
+        "metadata_id": "meta-copy-B-last-known-good",
+        "payload_length": 1750,
+        "previous_valid_generation": 40,
+        "schema_version": "vhsc.bootmeta.v0.2-roadmap",
+        "sha256_payload_hash": "d81993827449a65288f62666a79987426dcce766ac8d89218d86b88e7e108fb0",
+        "signature_reference": "dev-hmac-sha256",
+        "state": "committed"
+      },
+      "payload": {
+        "active_profile_id": "recovery-safe-minimal",
+        "guard_rails": {
+          "allow_unlicensed_isa": false,
+          "max_total_power_w": 60,
+          "require_hpeu": true,
+          "require_signed_profiles": true
+        },
+        "last_known_good_profile_id": "recovery-safe-minimal",
+        "profile_ids": [
+          "linux-riscv-devicetree",
+          "bsd-riscv-devicetree",
+          "rtos-vrisc-flatmap",
+          "windows-arm64-uefi-acpi",
+          "x86-64-later-stage-placeholder",
+          "recovery-safe-minimal"
+        ],
+        "resource_map": {
+          "accelerator_slices": [
+            {
+              "id": "AI0",
+              "power_w": 12,
+              "status": "healthy",
+              "type": "near-memory-vector"
+            },
+            {
+              "id": "SEC0",
+              "power_w": 4,
+              "status": "healthy",
+              "type": "security-crypto"
+            }
+          ],
+          "compute_regions": [
+            {
+              "id": "C0",
+              "isa": "riscv64",
+              "power_w": 8,
+              "status": "healthy",
+              "tops": 20
+            },
+            {
+              "id": "C1",
+              "isa": "riscv64",
+              "power_w": 8,
+              "status": "healthy",
+              "tops": 20
+            },
+            {
+              "id": "C2",
+              "isa": "v-risc",
+              "power_w": 7,
+              "status": "healthy",
+              "tops": 25
+            },
+            {
+              "id": "C3",
+              "isa": "arm64-compatible",
+              "power_w": 7,
+              "status": "healthy",
+              "tops": 18
+            },
+            {
+              "id": "C4",
+              "isa": "x86-64-compatible",
+              "power_w": 0,
+              "status": "unavailable_unlicensed",
+              "tops": 0
+            }
+          ],
+          "io_blocks": [
+            {
+              "id": "NET0",
+              "status": "healthy",
+              "type": "network"
+            },
+            {
+              "id": "STOR0",
+              "status": "healthy",
+              "type": "storage"
+            },
+            {
+              "id": "MGMT0",
+              "status": "healthy",
+              "type": "management"
+            }
+          ],
+          "memory_regions": [
+            {
+              "id": "M0",
+              "size_mb": 1024,
+              "status": "healthy"
+            },
+            {
+              "id": "M1",
+              "size_mb": 1024,
+              "status": "healthy"
+            },
+            {
+              "id": "M2",
+              "size_mb": 512,
+              "status": "healthy"
+            },
+            {
+              "id": "M3",
+              "size_mb": 512,
+              "status": "degraded"
+            }
+          ],
+          "persistent_regions": [
+            {
+              "id": "P0",
+              "size_mb": 256,
+              "status": "healthy"
+            },
+            {
+              "id": "P1",
+              "size_mb": 128,
+              "status": "healthy"
+            }
+          ],
+          "resource_map_id": "vhsc_demo_resource_map_v1",
+          "thermal_zones": [
+            {
+              "id": "TZ0",
+              "max_w": 40,
+              "status": "healthy"
+            },
+            {
+              "id": "TZ1",
+              "max_w": 40,
+              "status": "healthy"
+            }
+          ],
+          "vbus_links": [
+            {
+              "gbps": 224,
+              "id": "VBUS0",
+              "status": "healthy"
+            },
+            {
+              "gbps": 224,
+              "id": "VBUS1",
+              "status": "healthy"
+            },
+            {
+              "gbps": 112,
+              "id": "VBUS2",
+              "status": "degraded"
+            }
+          ]
+        }
+      },
+      "signature": "6f69e2e8327525461acb77ef6614f737e04b15885177a971e3998dcd11fa5ec4"
+    }
+  ]
+}
