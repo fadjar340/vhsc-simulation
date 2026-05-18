@@ -1,0 +1,28 @@
+{
+  "description": "V-RISC research/RTOS profile with simple flat memory map.",
+  "isa_profile": "v-risc",
+  "machine_contract": "flatmap",
+  "os_family": "rtos",
+  "power_limit_w": 18,
+  "priority": 80,
+  "profile_hash": "9cc7fd34197470e901efacea65c547a682c96cd739bf763e954fa43df70fbe56",
+  "profile_id": "rtos-vrisc-flatmap",
+  "profile_schema": "vhsc.profile.v0.2-roadmap",
+  "profile_type": "normal",
+  "required_accelerators": [
+    "SEC0"
+  ],
+  "required_compute": [
+    "C2"
+  ],
+  "required_io": [
+    "MGMT0"
+  ],
+  "required_memory_mb": 256,
+  "required_persistent": [
+    "P1"
+  ],
+  "security_policy": "secure-appliance",
+  "signature": "78ebc75bf47a672fe179e8a15e6d2ef185272d66af981b4ec198a225999a51c9",
+  "vbus_quota_gbps": 56
+}

@@ -1,0 +1,27 @@
+{
+  "description": "Windows-class ARM64 UEFI/ACPI profile. Demonstrates table generation, not real Windows boot.",
+  "isa_profile": "arm64-compatible",
+  "machine_contract": "uefi-acpi",
+  "os_family": "windows-class",
+  "power_limit_w": 30,
+  "priority": 60,
+  "profile_hash": "f53557def2ece5a0d6b7cd29a83c29dadd603df4b96033337565c01eff2a748b",
+  "profile_id": "windows-arm64-uefi-acpi",
+  "profile_schema": "vhsc.profile.v0.2-roadmap",
+  "profile_type": "normal",
+  "required_accelerators": [],
+  "required_compute": [
+    "C3"
+  ],
+  "required_io": [
+    "NET0",
+    "STOR0"
+  ],
+  "required_memory_mb": 1024,
+  "required_persistent": [
+    "P0"
+  ],
+  "security_policy": "isolated-signed-boot",
+  "signature": "7c51e4f3521385b6668e8d1563e7e1b651b18a9c9839a723bcc87b4f4a550f6b",
+  "vbus_quota_gbps": 112
+}

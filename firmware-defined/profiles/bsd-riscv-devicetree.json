@@ -1,0 +1,26 @@
+{
+  "description": "BSD-like RISC-V profile using the same open boot path.",
+  "isa_profile": "riscv64",
+  "machine_contract": "device-tree",
+  "os_family": "bsd",
+  "power_limit_w": 22,
+  "priority": 90,
+  "profile_hash": "09422042665afa7eaad261348923646fea4f7cdb2d9d865e06aa56e948ca9de6",
+  "profile_id": "bsd-riscv-devicetree",
+  "profile_schema": "vhsc.profile.v0.2-roadmap",
+  "profile_type": "normal",
+  "required_accelerators": [],
+  "required_compute": [
+    "C1"
+  ],
+  "required_io": [
+    "NET0"
+  ],
+  "required_memory_mb": 512,
+  "required_persistent": [
+    "P1"
+  ],
+  "security_policy": "isolated",
+  "signature": "67a5a460847e0bbb1a1d4fb35219b3b190e090ba29df7ade36dccf759cb02a8c",
+  "vbus_quota_gbps": 80
+}

@@ -1,0 +1,27 @@
+{
+  "description": "Roadmap-only x86-64 placeholder. It should be rejected unless a real validated execution region exists.",
+  "isa_profile": "x86-64-compatible",
+  "machine_contract": "uefi-acpi",
+  "os_family": "x86-64-class",
+  "power_limit_w": 45,
+  "priority": 10,
+  "profile_hash": "572faed16d913b506d84ede266c75f8a41ae074ba6906ff1e8ec21782724d3f2",
+  "profile_id": "x86-64-later-stage-placeholder",
+  "profile_schema": "vhsc.profile.v0.2-roadmap",
+  "profile_type": "normal",
+  "required_accelerators": [],
+  "required_compute": [
+    "C4"
+  ],
+  "required_io": [
+    "NET0",
+    "STOR0"
+  ],
+  "required_memory_mb": 1024,
+  "required_persistent": [
+    "P0"
+  ],
+  "security_policy": "isolated-signed-boot",
+  "signature": "6a71c07655ef4d1f2b4d1c488333e05be4ec20e31e29f1f4ed12919bfe2dc495",
+  "vbus_quota_gbps": 112
+}

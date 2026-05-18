@@ -1,0 +1,27 @@
+{
+  "description": "Open first-validation profile for Linux/BSD/RTOS-like device-tree boot.",
+  "isa_profile": "riscv64",
+  "machine_contract": "device-tree",
+  "os_family": "linux-bsd-rtos",
+  "power_limit_w": 25,
+  "priority": 100,
+  "profile_hash": "10acf87a9963962e232211dc3c270cd832e337e8755c01b7fad4240a30267aaa",
+  "profile_id": "linux-riscv-devicetree",
+  "profile_schema": "vhsc.profile.v0.2-roadmap",
+  "profile_type": "normal",
+  "required_accelerators": [],
+  "required_compute": [
+    "C0"
+  ],
+  "required_io": [
+    "NET0",
+    "STOR0"
+  ],
+  "required_memory_mb": 1024,
+  "required_persistent": [
+    "P0"
+  ],
+  "security_policy": "isolated",
+  "signature": "228c0b5356996ed8ce9b4c6d851b3271edbd06079760912a5a0cf6d88d49f898",
+  "vbus_quota_gbps": 112
+}
