@@ -1,6 +1,5 @@
 # VHS-C BootROM / Control-Plane Scaffold Inputs
 
-Generated: 2026-05-18T18:50:42Z
 Scaffold version: 0.2.0
 
 This folder contains development-only sample profiles and protected metadata copies for the
