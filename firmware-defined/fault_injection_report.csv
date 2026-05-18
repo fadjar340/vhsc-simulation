@@ -1,0 +1,7 @@
+scenario,status,selected_metadata_id,selected_profile_id
+normal,boot-ok,meta-copy-A-good,linux-riscv-devicetree
+metadata_corrupt,boot-ok,meta-copy-B-last-known-good,recovery-safe-minimal
+metadata_stale,boot-ok,meta-copy-B-last-known-good,recovery-safe-minimal
+metadata_unsigned,boot-ok,meta-copy-B-last-known-good,recovery-safe-minimal
+degraded_resources,rollback-ok,meta-copy-A-good,recovery-safe-minimal
+unsafe_profile,rollback-ok,meta-copy-A-good,recovery-safe-minimal
